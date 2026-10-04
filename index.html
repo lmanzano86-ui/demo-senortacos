@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Señor de los Tacos — Tampa, FL</title>
+<meta name="description" content="Tacos de birria, quesabirrias y auténtica comida mexicana en Tampa, FL. Pide en línea por Square.">
+<style>
+  :root{ --red:#C1272D; --red-d:#9E1F24; --maiz:#F2A007; --chile:#7A1F1F; --ink:#241A12; --cream:#FFF8EC; --cream2:#F7ECD4; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(36,26,18,.97);color:#FFF3DD}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+  .logo{font-family:Georgia,serif;font-size:1.2rem;font-weight:700;letter-spacing:.5px}
+  .logo span{color:var(--maiz)}
+  .logo img{height:46px;width:auto;max-width:190px;object-fit:contain}
+  .navlinks{display:flex;gap:20px;align-items:center;font-size:.92rem}
+  .navlinks a{text-decoration:none;opacity:.92}
+  .navlinks a:hover{color:var(--maiz)}
+  .lang{background:transparent;border:1px solid var(--maiz);color:var(--maiz);border-radius:20px;padding:5px 14px;cursor:pointer;font-weight:700;font-size:.85rem}
+  .btn{display:inline-block;background:var(--red);color:#fff!important;font-weight:800;text-decoration:none;border-radius:30px;padding:13px 30px;font-size:1rem;border:none;cursor:pointer;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px);background:var(--red-d)}
+  .btn.ghost{background:transparent;border:2px solid #fff;color:#fff!important}
+  .btn.maiz{background:var(--maiz);color:var(--ink)!important}
+  @media(max-width:720px){.navlinks a.hid{display:none}.logo{font-size:1rem}.navlinks{gap:12px}}
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#FFF8E8}
+  .hero .bg{position:absolute;inset:0;background:url('imgs/tacos.jpg') center/cover}
+  .hero .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,12,8,.93) 8%,rgba(30,12,8,.25) 55%,rgba(30,12,8,.4))}
+  .hero .wrap{position:relative;padding:90px 20px 70px;width:100%}
+  .badge{display:inline-block;background:var(--maiz);color:var(--ink);font-weight:800;font-size:.8rem;letter-spacing:2px;border-radius:20px;padding:6px 18px;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.08;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:620px;margin-bottom:24px;color:#F7ECD4}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .stars{margin-top:18px;color:#F7ECD4}
+  .stars b{color:var(--maiz)}
+  .strip{background:var(--chile);color:#FFF3DD;text-align:center;padding:15px 10px;font-size:.95rem;letter-spacing:.5px}
+  .strip b{color:var(--maiz)}
+  section{padding:64px 0;scroll-margin-top:64px}
+  .kicker{color:var(--red);font-weight:800;letter-spacing:3px;font-size:.8rem;text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--ink);margin-bottom:10px}
+  .sec-sub{color:#7a6a55;max-width:640px;margin-bottom:32px;font-size:1.02rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(120,30,20,.12);transition:transform .2s;border-bottom:5px solid var(--red)}
+  .card:hover{transform:translateY(-5px)}
+  .card img{height:200px;width:100%;object-fit:cover}
+  .card .body{padding:20px}
+  .card h3{font-size:1.25rem;margin-bottom:4px}
+  .card .price{font-weight:800;color:var(--red);font-size:1.1rem;margin-bottom:6px}
+  .card p{font-size:.93rem;color:#7a6a55}
+  .card .tag{display:inline-block;background:var(--cream2);color:var(--red-d);font-size:.75rem;font-weight:800;letter-spacing:1px;border-radius:12px;padding:3px 12px;margin-bottom:10px}
+  .menu{background:var(--ink);color:#F7ECD4}
+  .menu h2{color:#FFF3DD}
+  .menu .kicker{color:var(--maiz)}
+  .menu .sec-sub{color:#c9b78f}
+  .mcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+  .mcat h3{color:var(--maiz);font-size:1.2rem;margin-bottom:12px;border-bottom:2px solid var(--red);padding-bottom:6px;display:inline-block}
+  .mitem{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed rgba(242,160,7,.25);font-size:.95rem}
+  .mitem .p{font-weight:800;color:var(--maiz);white-space:nowrap}
+  .local .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+  @media(max-width:760px){.local .grid2{grid-template-columns:1fr}}
+  .local img{border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,.15)}
+  .social{background:var(--red);color:#fff;text-align:center;padding:52px 20px}
+  .social h2{color:#fff;margin-bottom:8px}
+  .social p{margin-bottom:22px}
+  .social .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .social .btn{background:#fff;color:var(--red-d)!important}
+  .visit .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:10px}
+  .vcard{background:#fff;border-radius:14px;padding:26px;box-shadow:0 6px 18px rgba(120,30,20,.1)}
+  .vcard h3{margin-bottom:10px;font-size:1.12rem}
+  .vcard p{font-size:.95rem;color:#6b5c48}
+  .vcard .qr{display:flex;gap:14px;margin-top:14px;align-items:center}
+  .vcard .qr img{width:86px;height:86px;border-radius:8px;border:2px solid var(--cream2)}
+  .vcard .qr small{font-size:.8rem;color:#8a7a62}
+  table.hours{width:100%;font-size:.9rem;border-collapse:collapse;margin-top:6px}
+  table.hours td{padding:5px 0;border-bottom:1px dashed #e3d5ba;color:#6b5c48}
+  table.hours td:last-child{text-align:right;font-weight:700;color:var(--ink)}
+  footer{background:var(--ink);color:#c9b78f;text-align:center;padding:34px 20px;font-size:.9rem}
+  footer .logo{margin-bottom:8px;color:#fff}
+  .wa-float{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.3);z-index:60}
+  .wa-float svg{width:32px;height:32px;fill:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><img src="imgs/logo.png" alt="El Señor de los Tacos"></div>
+    <div class="navlinks">
+      <a class="hid" href="#especialidades" data-es="Especialidades" data-en="Specialties">Especialidades</a>
+      <a class="hid" href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+      <a class="hid" href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
+      <button class="lang" onclick="toggleLang()"><span id="l-es" style="opacity:1">ES</span> | <span id="l-en" style="opacity:.45">EN</span></button>
+      <a class="btn maiz" style="padding:8px 20px" href="https://elsenordelostacos.square.site/s/order?location=LMWH8QN2NR3DK&menu=true" target="_blank" data-es="Pedir en línea" data-en="Order online">Pedir en línea</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="bg"></div><div class="shade"></div>
+  <div class="wrap">
+    <div class="badge" data-es="BIRRIA HOUSE · TAMPA, FL" data-en="BIRRIA HOUSE · TAMPA, FL">BIRRIA HOUSE · TAMPA, FL</div>
+    <h1 data-es="Los tacos de birria más famosos de Tampa" data-en="Tampa's most famous birria tacos">Los tacos de birria más famosos de Tampa</h1>
+    <p class="lead" data-es="Birria jugosa, consomé calientito, tortillas hechas al momento y aguas frescas. Auténtico sabor mexicano." data-en="Juicy birria, hot consommé, fresh-made tortillas and aguas frescas. Authentic Mexican flavor.">Birria jugosa, consomé calientito, tortillas hechas al momento y aguas frescas. Auténtico sabor mexicano.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://elsenordelostacos.square.site/s/order?location=LMWH8QN2NR3DK&menu=true" target="_blank" data-es="🛒 Pedir en línea (Square)" data-en="🛒 Order online (Square)">🛒 Pedir en línea (Square)</a>
+      <a class="btn ghost" href="tel:+18132693093">📞 <span data-es="Llamar" data-en="Call">Llamar</span></a>
+    </div>
+    <div class="stars">★ <b>4.6</b> <span data-es="en Uber Eats · +1,000 reseñas" data-en="on Uber Eats · 1,000+ reviews">en Uber Eats · +1,000 reseñas</span></div>
+  </div>
+</header>
+
+<div class="strip" data-es="<b>LUN–JUE 10AM–9PM</b> · <b>VIE 10AM–12AM</b> · <b>SÁB 11AM–12AM</b> · <b>DOM 11AM–8PM</b> · 4307 GUNN HWY, TAMPA" data-en="<b>MON–THU 10AM–9PM</b> · <b>FRI 10AM–12AM</b> · <b>SAT 11AM–12AM</b> · <b>SUN 11AM–8PM</b> · 4307 GUNN HWY, TAMPA"><b>LUN–JUE 10AM–9PM</b> · <b>VIE 10AM–12AM</b> · <b>SÁB 11AM–12AM</b> · <b>DOM 11AM–8PM</b> · 4307 GUNN HWY, TAMPA</div>
+
+<section id="especialidades">
+  <div class="wrap">
+    <div class="kicker" data-es="Especialidades de la casa" data-en="House specialties">Especialidades de la casa</div>
+    <h2 data-es="Los favoritos de todos" data-en="Everyone's favorites">Los favoritos de todos</h2>
+    <p class="sec-sub" data-es="Lo que más piden en el local y en delivery." data-en="The most ordered in-store and for delivery.">Lo que más piden en el local y en delivery.</p>
+    <div class="grid">
+      <div class="card">
+        <img src="imgs/tacos.jpg" alt="Tacos de birria">
+        <div class="body">
+          <div class="tag" data-es="EL FAMOSO" data-en="THE FAMOUS ONE">EL FAMOSO</div>
+          <h3 data-es="Tacos de Birria" data-en="Birria Tacos">Tacos de Birria</h3>
+          <div class="price">$6.99</div>
+          <p data-es="Con su consomé calientito para chopear. Los mejores de Tampa, dicen los clientes." data-en="With hot consommé for dipping. Tampa's best, customers say.">Con su consomé calientito para chopear. Los mejores de Tampa, dicen los clientes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="imgs/birria.jpg" alt="Quesabirria">
+        <div class="body">
+          <div class="tag" data-es="CON QUESO" data-en="WITH CHEESE">CON QUESO</div>
+          <h3>Quesabirria</h3>
+          <div class="price">$6.99</div>
+          <p data-es="Tortilla dorada a la plancha, queso derretido y birria jugosa." data-en="Griddle-crisped tortilla, melted cheese and juicy birria.">Tortilla dorada a la plancha, queso derretido y birria jugosa.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="imgs/birria-ramen.jpg" alt="Birria ramen">
+        <div class="body">
+          <div class="tag" data-es="PARA PROBAR" data-en="MUST TRY">PARA PROBAR</div>
+          <h3 data-es="Birria Ramen" data-en="Birria Ramen">Birria Ramen</h3>
+          <div class="price" data-es="Pregunta el precio" data-en="Ask for price">Pregunta el precio</div>
+          <p data-es="Sopa de fideos con birria de res y totopos. Pura delicia." data-en="Noodle soup with beef birria and tortilla chips. Pure delight.">Sopa de fideos con birria de res y totopos. Pura delicia.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="imgs/interior.jpg" alt="En el local">
+        <div class="body">
+          <div class="tag" data-es="TAMBIÉN" data-en="ALSO">TAMBIÉN</div>
+          <h3 data-es="Burrito Bowl" data-en="Burrito Bowl">Burrito Bowl</h3>
+          <div class="price">$17.99</div>
+          <p data-es="Para los de buen diente: completo y llenador." data-en="For big appetites: complete and filling.">Para los de buen diente: completo y llenador.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap">
+    <div class="kicker" data-es="Nuestro menú" data-en="Our menu">Nuestro menú</div>
+    <h2 data-es="Precios que se entienden" data-en="Prices that make sense">Precios que se entienden</h2>
+    <p class="sec-sub" data-es="Pide en línea por Square o llámanos. Precios del menú en línea; pueden variar en delivery." data-en="Order online with Square or call us. Online menu prices; may vary on delivery.">Pide en línea por Square o llámanos. Precios del menú en línea; pueden variar en delivery.</p>
+    <div class="mcols">
+      <div class="mcat">
+        <h3 data-es="Tacos" data-en="Tacos">Tacos</h3>
+        <div class="mitem"><span data-es="Taco de birria" data-en="Birria taco">Taco de birria</span><span class="p">$6.99</span></div>
+        <div class="mitem"><span>Quesabirria</span><span class="p">$6.99</span></div>
+        <div class="mitem"><span data-es="Taco al pastor" data-en="Al pastor taco">Taco al pastor</span><span class="p">$6.99</span></div>
+        <div class="mitem"><span data-es="Taco de camarón" data-en="Shrimp taco">Taco de camarón</span><span class="p">$6.99</span></div>
+      </div>
+      <div class="mcat">
+        <h3 data-es="Platos fuertes" data-en="Mains">Platos fuertes</h3>
+        <div class="mitem"><span>Burrito Bowl</span><span class="p">$17.99</span></div>
+        <div class="mitem"><span data-es="Nachos supremos" data-en="Supreme nachos">Nachos supremos</span><span class="p">$17.99</span></div>
+        <div class="mitem"><span>Ceviche</span><span class="p">$16.99</span></div>
+        <div class="mitem"><span>Flautas</span><span class="p">$17.99</span></div>
+      </div>
+      <div class="mcat">
+        <h3 data-es="Bebidas" data-en="Drinks">Bebidas</h3>
+        <div class="mitem"><span data-es="Aguas frescas" data-en="Aguas frescas">Aguas frescas</span><span class="p">$5.49+</span></div>
+        <div class="mitem"><span>Horchata</span><span class="p">$5.49+</span></div>
+        <div class="mitem"><span>Jarritos</span><span class="p">$3.99+</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a class="btn" href="https://elsenordelostacos.square.site/s/order?location=LMWH8QN2NR3DK&menu=true" target="_blank" data-es="🛒 Pedir ahora por Square" data-en="🛒 Order now with Square">🛒 Pedir ahora por Square</a>
+    </div>
+  </div>
+</section>
+
+<section class="local">
+  <div class="wrap">
+    <div class="grid2">
+      <div><img src="imgs/fachada.jpg" alt="Fachada de El Señor de los Tacos"></div>
+      <div>
+        <div class="kicker" data-es="El local" data-en="The place">El local</div>
+        <h2 data-es="Pásale, siéntate, disfruta" data-en="Come in, sit down, enjoy">Pásale, siéntate, disfruta</h2>
+        <p class="sec-sub" data-es="Comedor familiar en Gunn Hwy, abierto hasta la medianoche los fines de semana. También estamos en Uber Eats, DoorDash y Caviar para delivery." data-en="Family dining room on Gunn Hwy, open until midnight on weekends. Also on Uber Eats, DoorDash and Caviar for delivery.">Comedor familiar en Gunn Hwy, abierto hasta la medianoche los fines de semana. También estamos en Uber Eats, DoorDash y Caviar para delivery.</p>
+        <div style="display:flex;gap:36px;margin-top:8px">
+          <div><div style="font-family:Georgia,serif;font-size:3rem;color:var(--red);font-weight:700;line-height:1">4.6</div><div style="font-size:.9rem;color:#7a6a55" data-es="en Uber Eats" data-en="on Uber Eats">en Uber Eats</div></div>
+          <div><div style="font-family:Georgia,serif;font-size:3rem;color:var(--red);font-weight:700;line-height:1">1K+</div><div style="font-size:.9rem;color:#7a6a55" data-es="reseñas" data-en="reviews">reseñas</div></div>
+          <div><div style="font-family:Georgia,serif;font-size:3rem;color:var(--red);font-weight:700;line-height:1">7</div><div style="font-size:.9rem;color:#7a6a55" data-es="días a la semana" data-en="days a week">días a la semana</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="social">
+  <div class="wrap">
+    <h2 data-es="Síguenos" data-en="Follow us">Síguenos</h2>
+    <p data-es="Especiales, nuevos platillos y antojos en nuestras redes." data-en="Specials, new dishes and cravings on our socials.">Especiales, nuevos platillos y antojos en nuestras redes.</p>
+    <div class="row">
+      <a class="btn" href="https://www.facebook.com/senordelostacos" target="_blank">Facebook</a>
+      <a class="btn" href="https://www.instagram.com/tampaelsenordelostacos/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<section id="visitanos" class="visit">
+  <div class="wrap">
+    <div class="kicker" data-es="Visítanos" data-en="Visit us">Visítanos</div>
+    <h2 data-es="Te esperamos" data-en="We'll be waiting">Te esperamos</h2>
+    <div class="vgrid">
+      <div class="vcard">
+        <h3>📍 <span data-es="Dirección" data-en="Address">Dirección</span></h3>
+        <p>4307 Gunn Hwy<br>Tampa, FL 33618</p>
+        <div style="margin-top:14px"><a class="btn" style="padding:10px 22px;font-size:.9rem;background:var(--ink)" href="https://www.google.com/maps/search/?api=1&query=El+Senor+de+los+Tacos+4307+Gunn+Hwy+Tampa+FL+33618" target="_blank" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a></div>
+        <div class="qr"><img src="qr/qr-maps.png" alt="QR mapa"><small data-es="Escanea para abrir el mapa" data-en="Scan to open the map">Escanea para abrir el mapa</small></div>
+      </div>
+      <div class="vcard">
+        <h3>🕐 <span data-es="Horario" data-en="Hours">Horario</span></h3>
+        <table class="hours">
+          <tr><td data-es="Lunes – Jueves" data-en="Monday – Thursday">Lunes – Jueves</td><td>10AM – 9PM</td></tr>
+          <tr><td data-es="Viernes" data-en="Friday">Viernes</td><td>10AM – 12AM</td></tr>
+          <tr><td data-es="Sábado" data-en="Saturday">Sábado</td><td>11AM – 12AM</td></tr>
+          <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td>11AM – 8PM</td></tr>
+        </table>
+        <div class="qr"><img src="qr/qr-review.png" alt="QR reseña"><small data-es="¿Te gustó? Déjanos tu reseña" data-en="Liked us? Leave a review">¿Te gustó? Déjanos tu reseña</small></div>
+      </div>
+      <div class="vcard">
+        <h3>📞 <span data-es="Contacto" data-en="Contact">Contacto</span></h3>
+        <p><a href="tel:+18132693093" style="font-weight:800;color:var(--ink);text-decoration:none">(813) 269-3093</a></p>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" style="padding:10px 22px;font-size:.9rem" href="https://elsenordelostacos.square.site/s/order?location=LMWH8QN2NR3DK&menu=true" target="_blank" data-es="Pedir en línea" data-en="Order online">Pedir en línea</a>
+          <a class="btn" style="padding:10px 22px;font-size:.9rem;background:var(--ink)" href="tel:+18132693093" data-es="Llamar" data-en="Call">Llamar</a>
+        </div>
+        <div class="qr"><img src="qr/qr-web.png" alt="QR página web"><small data-es="Escanea para guardar esta página" data-en="Scan to save this page">Escanea para guardar esta página</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo"><img src="imgs/logo.png" alt="El Señor de los Tacos"></div>
+  <div>4307 Gunn Hwy, Tampa, FL 33618 · (813) 269-3093</div>
+  <div style="margin-top:6px;opacity:.7" data-es="Demo de muestra — fotos reales del perfil del negocio · Precios del menú en línea" data-en="Sample demo — real photos from the business profile · Online menu prices">Demo de muestra — fotos reales del perfil del negocio · Precios del menú en línea</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/18132693093?text=Hola%20El%20Se%C3%B1or%20de%20los%20Tacos%2C%20quiero%20hacer%20un%20pedido" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.6 6.1 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.5 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5C5.1 9.4 10.1 4.9 16 4.9S26.9 9.9 26.9 15.9 21.9 24.8 16 24.8zm5.4-8.1c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.4c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+let lang='es';
+function toggleLang(){
+  lang = lang==='es' ? 'en' : 'es';
+  document.querySelectorAll('[data-es]').forEach(el=>{ el.innerHTML = el.dataset[lang]; });
+  document.getElementById('l-es').style.opacity = lang==='es' ? '1' : '.45';
+  document.getElementById('l-en').style.opacity = lang==='en' ? '1' : '.45';
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>
